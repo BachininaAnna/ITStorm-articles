@@ -1,0 +1,82 @@
+@import "../../../../assets/styles/mixins";
+@import "../../../../assets/styles/variables";
+
+.footer {
+  background-color: #B9D5FD;
+
+  .container {
+    padding-top: 40px;
+    padding-bottom: 54px;
+    @include montserrat-400-16;
+
+    .footer-top {
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+
+      .footer-nav {
+        margin-left: 40px;
+
+        a {
+          margin-right: 20px;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .footer-bottom {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+
+      .item {
+        margin-right: 60px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .title {
+          color: $blue-color;
+          @include montserrat-500-16;
+          margin-bottom: 10px;
+        }
+
+        .info {
+          margin-bottom: 10px;
+        }
+
+        .button {
+          @include montserrat-500-12;
+          width: 153px;
+          padding: 10px 20px;
+        }
+
+        .icons {
+          margin-top: 19px;
+          min-width: 96px;
+
+          svg {
+            margin-right: 19px;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+
+        &.address {
+          max-width: 253px;
+        }
+      }
+
+    }
+
+    .footer-rights {
+      color: $blue-color;
+    }
+  }
+}

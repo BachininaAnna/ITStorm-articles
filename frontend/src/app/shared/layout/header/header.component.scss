@@ -1,0 +1,62 @@
+@import "../../../../assets/styles/mixins";
+@import "../../../../assets/styles/variables";
+
+.header {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    @include montserrat-500-16;
+
+    .header-nav {
+      margin-left: 30px;
+
+      a {
+        margin-right: 30px;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .header-phone {
+      color: $blue-color;
+      margin-left: 186px;
+      margin-right: 72px;
+    }
+
+    .header-personal {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .header-personal-auth {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1124px) {
+  .header {
+    .container {
+      .header-phone {
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+    }
+  }
+}
+@media (max-width: 910px) {
+  .header {
+    .container {
+      .header-phone {
+        display: none;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,79 @@
+@import "variables";
+
+@mixin lora-26 {
+  font-family: Lora, sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 130%;
+  color: $blue-color;
+}
+@mixin lora-36 {
+  font-family: Lora, sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 130%;
+  color: $blue-color;
+}
+
+@mixin lora-38 {
+  font-family: Lora, sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 130%;
+  color: $blue-color;
+}
+@mixin lora-50 {
+  font-family: Lora, sans-serif;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 130%;
+  color: $blue-color;
+}
+
+@mixin montserrat-400-16 {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+}
+
+@mixin montserrat-500-12 {
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 130%;
+}
+
+@mixin montserrat-500-14 {
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+}
+@mixin montserrat-500-16 {
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+}
+
+@mixin montserrat-500-20 {
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 130%;
+}
+
+@mixin montserrat-600-18 {
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+@mixin montserrat-600-20 {
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+}
