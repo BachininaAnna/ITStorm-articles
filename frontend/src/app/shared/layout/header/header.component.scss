@@ -15,6 +15,11 @@
 
       a {
         margin-right: 30px;
+        cursor: pointer;
+
+        &.active {
+          color: $blue-color;
+        }
       }
 
       &:last-child {
@@ -34,6 +39,8 @@
       align-items: center;
 
       .header-personal-auth {
+        cursor: pointer;
+        color: $dark-blue-color;
         margin-left: 10px;
       }
     }
@@ -50,6 +57,7 @@
     }
   }
 }
+
 @media (max-width: 910px) {
   .header {
     .container {

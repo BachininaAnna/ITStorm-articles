@@ -4,9 +4,10 @@
 
 
 html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat, sans-serif !important;
   font-weight: 400;
   font-size: 14px;
   line-height: 130%;
@@ -20,7 +21,15 @@ html, body {
 
 a {
   text-decoration: none;
+  color: $dark-blue-color;
 }
+
+button {
+  border: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+}
+
 
 .button {
   border-radius: 5px;
@@ -30,12 +39,32 @@ a {
   align-items: center;
   padding: 15px 40px;
   color: #FFFFFF;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &:disabled {
+    background-color: $blue-color-disabled;
+  }
 }
+
+.mat-body, .mat-body-1, .mat-typography {
+  font: inherit !important;
+}
+
 .main-carousel-items {
   position: relative;
 
   .owl-carousel {
     position: relative;
+    width: 1239px;
+    height: 500px;
+
+    .main-banner-button {
+      position: absolute;
+      bottom: 98px;
+      left: 80px;
+      width: 163px;
+    }
 
     .owl-dots {
       position: absolute;
@@ -54,41 +83,80 @@ a {
         background: #FFFFFF;
       }
     }
-
-    /*.owl-nav {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      margin: 0;
-
-      .owl-next,
-      .owl-next:hover {
-        padding: 0 13px;
-        width: 15px;
-        margin: 0;
-        background-color: transparent;
-        background-image: url("../svg/next.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-
-      .owl-prev,
-      .owl-prev:hover {
-        padding: 0 13px;
-        width: 15px;
-        margin: 0;
-        background-color: transparent;
-        background-image: url("../svg/prev.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-    }*/
   }
 }
 
+.mat-menu-item {
+  @include montserrat-500-16;
+  line-height: 38px;
+  height: 38px;
+  padding: 16px;
+  text-align: center;
+}
+
+input, select {
+  padding: 20px;
+  width: 422px;
+  box-sizing: border-box;
+  border: 2px solid $blue-color;
+  border-radius: 3px;
+
+  &::placeholder {
+    color: #A8ABA7;
+  }
+
+  &.invalid {
+    border: 2px solid red;
+
+    &::placeholder {
+      color: red;
+    }
+  }
+
+  &.input:disabled::placeholder {
+    color: $blue-color;
+  }
+
+  &:focus {
+    outline: none;
+    border: 2px solid #0c2d6f;
+  }
+
+  &[type="checkbox"] {
+    background-color: transparent;
+    margin: 0;
+    min-width: 14px;
+    min-height: 14px;
+    border: 1px solid #071739;
+    border-radius: 3px;
+
+    &.invalid {
+      background: red;
+    }
+
+    &.invalid ~ label {
+      color: red;
+    }
+  }
+}
+
+snack-bar-container.mat-snack-bar-container {
+  position: absolute;
+  top: 15%;
+  right: calc(50% - 180px);
+  width: 360px;
+  background: #FFFFFF;
+  border: 2px solid $blue-color;
+  text-align: center;
+  color: $dark-blue-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .mat-simple-snackbar {
+    @include montserrat-500-16;
+  }
+}
 
 @media (max-width: 1260px) {
 
@@ -97,5 +165,3 @@ a {
   }
 
 }
-
-

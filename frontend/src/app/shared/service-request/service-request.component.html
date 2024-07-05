@@ -1,0 +1,71 @@
+<div class="service-request" [formGroup]="serviceRequestForm">
+  <div class="container">
+    <div class="service-request-body">
+      <div class="service-request-close" (click)="closeServiceRequest()">
+        <svg width="16.000000" height="16.000000" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs>
+            <clipPath id="clip17_1887">
+              <rect id="Х" width="16.000000" height="16.000000" fill="white" fill-opacity="0"/>
+            </clipPath>
+          </defs>
+          <g clip-path="url(#clip17_1887)">
+            <rect id="Х" width="14.000000" height="14.000000" transform="translate(1.000000 2.000000)" fill="#FFFFFF"
+                  fill-opacity="0"/>
+            <path id="Line 4" d="M1.58 2.29L14.31 15.02" stroke="#BEBEBE" stroke-opacity="1.000000"
+                  stroke-width="1.000000" stroke-linecap="round"/>
+            <path id="Line 5" d="M14.27 2.27L1.54 15" stroke="#BEBEBE" stroke-opacity="1.000000" stroke-width="1.000000"
+                  stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="order-info" *ngIf="!isShowThanksInfo">
+        <div class="service-request-title" *ngIf="!isItConsultation">Заявка на услугу</div>
+        <div class="service-request-title" *ngIf="isItConsultation">Закажите бесплатную консультацию!</div>
+
+        <div class="service-request-inputs">
+          <div class="service-request-input" *ngIf="!isItConsultation">
+            <select class="service" formControlName="service">
+              <option class="option"
+                      *ngFor="let service of services"
+                      [attr.selected]="(currentService === service.name) ? 'selected' : null">
+                {{service.name}}</option>
+            </select>
+          </div>
+          <div class="service-request-input">
+            <input type="text" class="input"
+                   [classList]="checkField('name') ? 'invalid' : ''"
+                   placeholder="{{checkField('name') ? 'Напишите ваше имя в формате: Иван' : 'Ваше имя'}}"
+                   formControlName="name">
+          </div>
+          <div class="service-request-input">
+            <input type="text" class="input"
+                   [classList]="checkField('phone') ? 'invalid' : ''"
+                   placeholder="{{checkField('phone') ? 'Напишите номер телефона' : 'Номер телефона'}}"
+                   formControlName="phone">
+          </div>
+          <div class="service-request-button" *ngIf="!isItConsultation">
+            <button class="button" [disabled]="serviceRequestForm.invalid" (click)="serviceRequest()">
+              Оставить заявку
+            </button>
+          </div>
+          <div class="service-request-button" *ngIf="isItConsultation">
+            <button class="button" [disabled]="serviceRequestForm.invalid" (click)="serviceRequest()">
+              Заказать консультацию
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="thanks-info" *ngIf="isShowThanksInfo">
+        <div class="service-request-title thanks-info-title">Спасибо за вашу заявку!</div>
+        <div class="thanks-info-text">Мы свяжемся с вами при первой же возможности.</div>
+        <div class="thanks-info-button">
+          <button class="button" (click)="closeServiceRequest()">Окей</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

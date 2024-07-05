@@ -1,0 +1,56 @@
+<section class="auth" [formGroup]="signupForm">
+  <div class="container">
+    <div class="auth-form">
+      <div class="auth-title">
+        Регистрация на сайте
+      </div>
+      <div class="auth-inputs">
+        <div class="auth-input">
+          <input type="text" class="input"
+                 [classList]="checkField('name') ? 'invalid' : ''"
+                 placeholder="{{checkField('name') ? 'Заполните Ваше имя в формате: Иван' : 'Ваше имя'}}"
+                 formControlName="name">
+        </div>
+        <div class="auth-input">
+          <input type="text" class="input"
+                 [classList]="checkField('email') ? 'invalid' : ''"
+                 placeholder="{{checkField('email') ? 'Заполните адрес электронной почты ' : 'Электронная почта'}}"
+                 formControlName="email">
+        </div>
+        <div class="auth-input">
+          <input type="password" class="input"
+                 [classList]="checkField('password') ? 'invalid' : ''"
+                 placeholder="{{checkField('password') ? 'Придумайте надежный пароль' : 'Пароль'}}"
+                 formControlName="password">
+          <div class="auth-input-invalid">
+            Пароль должен состоять минимум из 8 символов, содержать буквы только латинского алфавита в верхнем и нижнем
+            регистре, а также цифры
+          </div>
+        </div>
+        <div class="auth-checkbox-signup">
+          <input type="checkbox" id="agree"
+                 [classList]="checkField('agree') ? 'invalid' : ''"
+                 formControlName="agree">
+          <label for="agree">Я принимаю условия
+            <a target="_blank" href="assets/policyForDiploma/policyForDiploma.html#termsOfUse">
+              пользовательского соглашения</a> и даю
+            <a target="_blank" href="assets/policyForDiploma/policyForDiploma.html#consentPersonalData">
+              согласие на обработку персональных данных.</a>
+          </label>
+          <div class="auth-input-invalid">
+            Необходимо принять условия пользовательского соглашения
+          </div>
+        </div>
+        <div class="auth-button">
+          <button class="button" [disabled]="signupForm.invalid" (click)="signup()">Зарегистрироваться</button>
+        </div>
+      </div>
+      <div class="auth-link">Уже есть аккаунт?<a routerLink="/login">Войдите</a></div>
+    </div>
+
+    <div class="page-image"><img src="/assets/images/signup.png" alt="Signup Page"></div>
+
+  </div>
+</section>
+
+

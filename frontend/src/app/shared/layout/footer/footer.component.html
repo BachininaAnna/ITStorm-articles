@@ -2,9 +2,8 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-logo">
-        <a>
-          <svg width="85.000000" height="47.000000" viewBox="0 0 85 47" fill="none" xmlns="http://www.w3.org/2000/svg"
-               xmlns:xlink="http://www.w3.org/1999/xlink">
+        <a routerLink="/">
+          <svg width="85.000000" height="47.000000" viewBox="0 0 85 47" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path id="Vector"
                   d="M52.71 11.3C52.71 12.66 52.26 13.81 51.46 14.6C50.66 15.4 49.52 15.85 48.16 15.85L48.16 17.79C48.16 18.52 47.34 18.96 46.74 18.55L45.7 17.87C45.8 17.53 45.84 17.17 45.84 16.78L45.84 12.42C45.84 10.24 44.38 8.78 42.2 8.78L34.92 8.78C34.77 8.78 34.63 8.79 34.5 8.8L34.5 5.83C34.5 3.1 36.32 1.28 39.05 1.28L48.16 1.28C50.89 1.28 52.71 3.1 52.71 5.83L52.71 11.3Z"
                   stroke="#709FDC" stroke-opacity="1.000000" stroke-width="1.300000" stroke-linejoin="round"/>
@@ -24,11 +23,11 @@
         </a>
       </div>
       <div class="footer-nav">
-        <a>Услуги</a>
-        <a>О нас</a>
-        <a>Статьи</a>
-        <a>Отзывы</a>
-        <a>Контакты</a>
+        <a routerLink="/" fragment="services">Услуги</a>
+        <a routerLink="/" fragment="aboutUs">О нас</a>
+        <a routerLink="/articles" routerLinkActive="active">Статьи</a>
+        <a routerLink="/" fragment="reviews">Отзывы</a>
+        <a routerLink="/" fragment="contacts">Контакты</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -37,18 +36,18 @@
         <div class="info">Пресненская наб., 12, Москва, Россия, 123317.</div>
       </div>
       <div class="item phone">
-        <div class="title">Телефон</div>
-        <div class="info">+7 (499) 343-13-34</div>
-        <div class="button">Перезвоните мне</div>
+        <a class="title" href="tel:+375299182888">Телефон</a>
+        <a class="info" href="tel:+375299182888">+7 (499) 343-13-34</a>
+        <div class="button" (click)="getConsultation()">Перезвоните мне</div>
       </div>
-      <div class="item email">
-        <div class="title">E-mail</div>
+      <a class="item email" href="mailto:info@itstorm.com">
+        <div class="title" >E-mail</div>
         <div class="info">info@itstorm.com</div>
-      </div>
+      </a>
       <div class="item social">
         <div class="title">Мы в социальных сетях:</div>
         <div class="icons">
-          <a>
+          <a href="https://vk.com/">
             <svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink">
               <defs>
@@ -64,7 +63,7 @@
               </g>
             </svg>
           </a>
-          <a>
+          <a href="https://facebook.com/">
             <svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink">
               <defs>
@@ -80,7 +79,7 @@
               </g>
             </svg>
           </a>
-          <a>
+          <a href="https://instagram.com/">
             <svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink">
               <defs>
@@ -104,3 +103,9 @@
     </div>
   </div>
 </div>
+
+<section class="service-request" *ngIf="currentService">
+  <div class="container">
+    <service-request [currentService]="currentService"></service-request>
+  </div>
+</section>

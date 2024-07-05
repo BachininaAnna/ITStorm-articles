@@ -1,0 +1,289 @@
+@import "../../../../assets/styles/mixins";
+@import "../../../../assets/styles/variables";
+
+.article {
+  .container {
+    max-width: $container-width;
+    margin: 0 auto;
+
+    .pre-title {
+      margin-top: 80px;
+      margin-bottom: 60px;
+
+      .pre-title-blog {
+        color: $light-blue-color;
+        text-decoration: none;
+      }
+
+      .pre-title-article {
+        @include montserrat-500-16;
+        color: $blue-color;
+      }
+    }
+
+    .article-head {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+
+      .article-info {
+        color: $blue-color;
+        width: 607px;
+
+        .article-info-title {
+          @include lora-38;
+        }
+
+        .article-info-description {
+          font-size: 20px;
+          margin-top: 40px;
+        }
+      }
+
+      .article-image {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 527px;
+        height: 320px;
+        border-radius: 5px;
+      }
+    }
+
+    .article-body {
+      display: flex;
+      justify-content: space-between;
+
+      .article-body-left {
+        .article-body-text {
+          max-width: 818px;
+        }
+
+        .article-body-social {
+          color: $blue-color;
+          margin-top: 40px;
+          margin-bottom: 121px;
+          display: flex;
+          align-items: center;
+          height: 20px;
+
+          .text {
+            margin-right: 20px;
+          }
+
+          .icons a {
+            margin-right: 13px;
+          }
+        }
+
+        .article-body-add-comment {
+          margin-bottom: 60px;
+
+          .article-body-add-comment-title {
+            @include lora-38;
+          }
+
+          .article-body-add-comment-extra {
+            margin-top: 20px;
+
+            a {
+              text-decoration: none;
+              color: $blue-color;
+            }
+          }
+
+          .article-body-add-comment-area {
+            margin-top: 40px;
+            margin-bottom: 20px;
+
+            textarea {
+              resize: none;
+              border: 2px solid $blue-color;
+              border-radius: 3px;
+              padding: 20px 64px 20px 20px;
+              width: 818px;
+              height: 248px;
+              box-sizing: border-box;
+
+              &::placeholder {
+                color: #A8ABA7;
+                font-family: Montserrat, sans-serif !important;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 130%;
+              }
+            }
+          }
+
+          .article-body-add-comment-button {
+            .button {
+              border: 0;
+              font-family: Montserrat, sans-serif;
+              font-size: 16px;
+              width: 422px;
+              border-radius: 5px;
+              background: $blue-color;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 15px 40px;
+              color: #FFFFFF;
+              cursor: pointer;
+              box-sizing: border-box;
+
+              &:disabled {
+                background-color: $blue-color-disabled;
+              }
+            }
+          }
+        }
+
+        .article-body-comments {
+          margin-bottom: 59px;
+
+          .article-body-comment {
+            margin-bottom: 40px;
+
+            .personal {
+              display: flex;
+              margin-bottom: 15px;
+
+              .personal-photo {
+                margin-right: 26px;
+                border-radius: 50%;
+                border: 2px solid $blue-color;
+                background: $light-blue-color;
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+
+              .personal-info {
+                @include montserrat-600-18;
+
+                .personal-info-name {
+                  color: $blue-color;
+                  margin-bottom: 10px;
+                }
+
+                .personal-info-date {
+                  color: #BEBEBE;
+                  font-size: 14px;
+                }
+              }
+            }
+
+            .text {
+              width: 854px;
+              margin-bottom: 41px;
+            }
+
+            .reactions {
+              display: flex;
+              align-items: center;
+
+              & div {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                span {
+                  @include montserrat-600-18;
+                  font-size: 14px;
+                  margin-right: 3px;
+                }
+
+                svg {
+                  stroke: $dark-blue-color;
+                }
+              }
+
+              .applied {
+                color: $blue-color;
+
+                svg {
+                  stroke: $blue-color;
+                }
+              }
+
+              .reactions-like {
+                margin-right: 17px;
+
+                &:hover {
+                  color: $blue-color;
+                }
+
+                &:hover svg {
+                  stroke: $blue-color;
+                }
+              }
+
+              .reactions-dislike {
+                margin-right: 19px;
+
+                &:hover {
+                  color: $blue-color;
+                }
+
+                &:hover svg {
+                  stroke: $blue-color;
+                }
+              }
+
+              .reactions-spam {
+                svg {
+                  stroke: $dark-blue-color;
+
+                  &:hover {
+                    stroke: red;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .load-some-comments {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          margin-bottom: 120px;
+
+          span {
+            @include montserrat-500-20;
+            color: $blue-color;
+            margin-right: 10px;
+          }
+
+          .load-some-comments-svg {
+            rotate: 180deg;
+          }
+        }
+      }
+
+      .article-body-right {
+        margin-left: 20px;
+
+        .related-articles-title {
+          @include lora-26;
+          margin-bottom: 20px;
+        }
+
+        .article-body-related-article {
+          margin-bottom: 60px;
+        }
+      }
+    }
+
+  }
+}
+
+@media (max-width: 1260px) {
+
+  .container {
+    padding: 0 20px;
+  }
+
+}

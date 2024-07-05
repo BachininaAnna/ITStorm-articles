@@ -1,0 +1,196 @@
+<section class="article" *ngIf="article">
+  <div class="container">
+    <div class="pre-title">
+      <a routerLink="/articles" class="pre-title-blog">Блог / </a>
+      <span class="pre-title-article">{{article.title}}</span>
+    </div>
+    <div class="article-head">
+      <div class="article-info">
+        <div class="article-info-title">{{article.title}}</div>
+        <div class="article-info-description">{{article.description}}</div>
+      </div>
+      <div class="article-image" style="background-image: url('{{pathImage + article.image}}')"></div>
+    </div>
+
+    <div class="article-body">
+      <div class="article-body-left">
+        <div class="article-body-text" [innerHTML]="article.text"></div>
+
+        <div class="article-body-social">
+          <span class="text">Понравилась статья? Поделитесь ею в своих социальных сетях!</span>
+          <span class="icons">
+            <a href="https://vk.com/">
+             <svg width="19.999756" height="19.999695" viewBox="0 0 19.9998 19.9997" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		<clipPath id="clip42_1407">
+			<rect id="VK" width="19.999676" height="19.999676" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="VK" width="19.999676" height="19.999676" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip42_1407)">
+		<path id="Vector"
+          d="M3.82 0.17C1.82 0.17 0.17 1.82 0.17 3.82L0.17 16.17C0.17 18.17 1.82 19.82 3.82 19.82L16.17 19.82C18.17 19.82 19.82 18.17 19.82 16.17L19.82 3.82C19.82 1.82 18.17 0.17 16.17 0.17L3.82 0.17ZM3.82 1.96L16.17 1.96C17.21 1.96 18.03 2.78 18.03 3.82L18.03 16.17C18.03 17.21 17.21 18.03 16.17 18.03L3.82 18.03C2.78 18.03 1.96 17.21 1.96 16.17L1.96 3.82C1.96 2.78 2.78 1.96 3.82 1.96ZM9.74 6.63C9.09 6.62 8.53 6.63 8.22 6.78C8.01 6.88 7.85 7.11 7.94 7.12C8.07 7.14 8.34 7.2 8.49 7.4C8.68 7.65 8.67 8.23 8.67 8.23C8.67 8.23 8.77 9.81 8.41 10.01C8.17 10.15 7.83 9.87 7.1 8.61C6.72 7.96 6.44 7.25 6.44 7.25C6.44 7.25 6.39 7.12 6.29 7.05C6.17 6.96 6.01 6.93 6.01 6.93L4.26 6.94C4.26 6.94 4 6.95 3.9 7.06C3.82 7.17 3.9 7.38 3.9 7.38C3.9 7.38 5.27 10.57 6.81 12.18C8.23 13.66 9.84 13.57 9.84 13.57L10.58 13.57C10.58 13.57 10.8 13.54 10.91 13.42C11.01 13.31 11.01 13.1 11.01 13.1C11.01 13.1 11 12.12 11.45 11.98C11.9 11.84 12.47 12.92 13.08 13.34C13.55 13.66 13.9 13.59 13.9 13.59L15.53 13.57C15.53 13.57 16.38 13.51 15.98 12.84C15.94 12.79 15.74 12.35 14.77 11.44C13.74 10.49 13.88 10.64 15.11 9C15.86 8 16.16 7.39 16.07 7.12C15.98 6.88 15.42 6.94 15.42 6.94L13.59 6.95C13.59 6.95 13.45 6.94 13.35 7C13.25 7.05 13.19 7.19 13.19 7.19C13.19 7.19 12.9 7.97 12.51 8.63C11.69 10.02 11.36 10.09 11.23 10C10.92 9.8 11 9.2 11 8.77C11 7.42 11.2 6.86 10.6 6.71C10.4 6.66 10.25 6.63 9.74 6.63Z"
+          fill="#709FDC" fill-opacity="1.000000" fill-rule="nonzero"/>
+	</g>
+</svg>
+            </a>
+            <a href="https://facebook.com/">
+              <svg width="20.000244" height="20.000000" viewBox="0 0 20.0002 20" fill="none"
+                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+	<defs>
+		<clipPath id="clip42_1403">
+			<rect id="Facebook" width="20.000204" height="20.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="Facebook" width="20.000204" height="20.000000" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip42_1403)">
+		<path id="Vector"
+          d="M9.99 0C4.48 0 0 4.48 0 10C0 15.51 4.48 20 9.99 20C15.51 20 19.99 15.51 19.99 10C19.99 4.48 15.51 0 9.99 0ZM9.99 1.66C14.61 1.66 18.33 5.38 18.33 10C18.33 14.18 15.25 17.63 11.24 18.23L11.24 12.43L13.61 12.43L13.98 10.01L11.24 10.01L11.24 8.7C11.24 7.7 11.56 6.81 12.5 6.81L14 6.81L14 4.71C13.74 4.67 13.18 4.59 12.12 4.59C9.92 4.59 8.62 5.76 8.62 8.41L8.62 10.01L6.36 10.01L6.36 12.43L8.62 12.43L8.62 18.21C4.67 17.55 1.66 14.14 1.66 10C1.66 5.38 5.38 1.66 9.99 1.66Z"
+          fill="#709FDC" fill-opacity="1.000000" fill-rule="nonzero"/>
+	</g>
+</svg>
+            </a>
+            <a href="https://instagram.com/">
+             <svg width="19.999756" height="19.999695" viewBox="0 0 19.9998 19.9997" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		<clipPath id="clip42_1405">
+			<rect id="Instagram" width="19.999676" height="19.999676" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="Instagram" width="19.999676" height="19.999676" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip42_1405)">
+		<path id="Vector"
+          d="M5.95 0.17C2.78 0.17 0.17 2.78 0.17 5.95L0.17 14.04C0.17 17.21 2.78 19.82 5.95 19.82L14.04 19.82C17.21 19.82 19.82 17.21 19.82 14.04L19.82 5.95C19.82 2.78 17.21 0.17 14.04 0.17L5.95 0.17ZM5.95 1.96L14.04 1.96C16.25 1.96 18.03 3.74 18.03 5.95L18.03 14.04C18.03 16.25 16.25 18.03 14.04 18.03L5.95 18.03C3.74 18.03 1.96 16.25 1.96 14.04L1.96 5.95C1.96 3.74 3.74 1.96 5.95 1.96ZM15.27 3.91C14.82 3.91 14.46 4.27 14.46 4.72C14.46 5.17 14.82 5.53 15.27 5.53C15.72 5.53 16.08 5.17 16.08 4.72C16.08 4.27 15.72 3.91 15.27 3.91ZM10 4.64C7.05 4.64 4.64 7.05 4.64 9.99C4.64 12.94 7.05 15.35 10 15.35C12.94 15.35 15.35 12.94 15.35 9.99C15.35 7.05 12.94 4.64 10 4.64ZM10 6.42C11.98 6.42 13.57 8.01 13.57 9.99C13.57 11.98 11.98 13.57 10 13.57C8.01 13.57 6.42 11.98 6.42 9.99C6.42 8.01 8.01 6.42 10 6.42Z"
+          fill="#709FDC" fill-opacity="1.000000" fill-rule="nonzero"/>
+	</g>
+</svg>
+            </a>
+          </span>
+        </div>
+
+        <div class="article-body-add-comment">
+          <div class="article-body-add-comment-title">Комментарии к статье</div>
+          <div class="article-body-add-comment-extra" *ngIf="!isLogged">
+            Чтобы оставлять комментарии,
+            <a routerLink="/login">войдите</a> или
+            <a routerLink="/signup">зарегистрируйтесь</a>.
+          </div>
+          <div *ngIf="isLogged">
+            <div class="article-body-add-comment-area">
+              <textarea name="comment" placeholder="Напишите Ваш комментарий к статье..." [(ngModel)]="textComment"></textarea>
+            </div>
+            <div class="article-body-add-comment-button">
+              <button class="button" [disabled]="textComment.length < 5" (click)="addComment()">Опубликовать комментарий</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-body-comments">
+          <div class="article-body-comment" *ngFor="let comment of comments">
+            <div class="personal">
+              <div class="personal-photo">
+                <svg width="60.000000" height="60.000000" viewBox="0 0 60 60" fill="none"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <defs/>
+                  <mask id="mask102_269" mask-type="alpha" maskUnits="userSpaceOnUse" x="0.000000" y="0.000000"
+                        width="60.000000" height="60.000000">
+                    <circle id="Ellipse 25" cx="30.000000" cy="30.000000" r="30.000000" fill="#C4C4C4"
+                            fill-opacity="1.000000"/>
+                  </mask>
+                  <g mask="url(#mask102_269)">
+                    <circle id="Ellipse 29" cx="29.975098" cy="22.736816" r="11.736842" stroke="#709FDC"
+                            stroke-opacity="1.000000" stroke-width="2.000000"/>
+                    <path id="Subtract"
+                          d="M8.00464 55.0001L10.0076 55.0001C10.6074 44.4932 19.3176 36.158 29.9746 36.158C40.6318 36.158 49.342 44.4932 49.9417 55.0001L51.9448 55.0001C51.3425 43.3881 41.7366 34.158 29.9746 34.158C18.2129 34.158 8.60669 43.3881 8.00464 55.0001Z"
+                          clip-rule="evenodd" fill="#709FDC" fill-opacity="1.000000" fill-rule="evenodd"/>
+                  </g>
+                </svg>
+              </div>
+              <div class="personal-info">
+                <div class="personal-info-name">{{comment.user.name}}</div>
+                <div class="personal-info-date">{{ comment.date | date : "dd.mm.yyyy HH:mm" }}</div>
+              </div>
+            </div>
+            <div class="text">
+              {{comment.text}}
+            </div>
+            <div class="reactions">
+              <div class="reactions-like" [class.applied]="comment.likeApplied"
+                   (click)="applyAction(action.like, comment.id)">
+                <span>{{comment.likesCount}}</span>
+                <svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <defs/>
+                  <path id="Vector"
+                        d="M7.47 18.35L10.58 20.75C10.98 21.15 11.87 21.35 12.48 21.35L16.28 21.35C17.48 21.35 18.78 20.45 19.08 19.25L21.48 11.95C21.98 10.54 21.08 9.34 19.58 9.34L15.58 9.34C14.98 9.34 14.48 8.84 14.58 8.15L15.08 4.94C15.28 4.04 14.67 3.04 13.78 2.75C12.98 2.44 11.98 2.84 11.58 3.44L7.47 9.54"
+                        stroke-opacity="1.000000" stroke-width="1.500000"/>
+                  <path id="Vector"
+                        d="M2.37 8.54C2.37 7.14 2.97 6.64 4.37 6.64L5.37 6.64C6.77 6.64 7.37 7.14 7.37 8.54L7.37 18.34C7.37 19.74 6.77 20.24 5.37 20.24L4.37 20.24C2.97 20.24 2.37 19.74 2.37 18.34L2.37 8.54Z"
+                        stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round"/>
+                  <g opacity="0.000000"/>
+                </svg>
+              </div>
+              <div class="reactions-dislike" [class.applied]="comment.dislikeApplied"
+                   (click)="applyAction(action.dislike, comment.id)">
+                <span>{{comment.dislikesCount}}</span>
+                <svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <defs/>
+                  <path id="Vector"
+                        d="M16.51 5.64L13.41 3.24C13.01 2.84 12.11 2.64 11.51 2.64L7.71 2.64C6.51 2.64 5.21 3.54 4.91 4.74L2.51 12.04C2.01 13.45 2.91 14.64 4.41 14.64L8.41 14.64C9.01 14.64 9.51 15.14 9.41 15.84L8.91 19.04C8.71 19.95 9.31 20.95 10.21 21.24C11.01 21.54 12.01 21.14 12.41 20.54L16.51 14.45"
+                        stroke-opacity="1.000000" stroke-width="1.500000"/>
+                  <path id="Vector"
+                        d="M21.62 15.45C21.62 16.85 21.02 17.35 19.62 17.35L18.62 17.35C17.22 17.35 16.62 16.85 16.62 15.45L16.62 5.65C16.62 4.25 17.22 3.75 18.62 3.75L19.62 3.75C21.02 3.75 21.62 4.25 21.62 5.65L21.62 15.45Z"
+                        stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round"/>
+                  <g opacity="0.000000"/>
+                </svg>
+              </div>
+              <div class="reactions-spam" (click)="applyAction(action.violate, comment.id)">
+                <svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <defs/>
+                  <path id="Vector"
+                        d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12Z"
+                        stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round"/>
+                  <path id="Vector" d="M12 8L12 13" stroke-opacity="1.000000" stroke-width="1.500000"
+                        stroke-linejoin="round" stroke-linecap="round"/>
+                  <path id="Vector" d="M11.99 16L12 16" stroke-opacity="1.000000"
+                        stroke-width="1.500000" stroke-linejoin="round" stroke-linecap="round"/>
+                  <g opacity="0.000000"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <app-loader></app-loader>
+        <div class="load-some-comments" (click)="loadSomeComments()" *ngIf="!allViews">
+          <span [innerText]="comments.length ? 'Загрузить ещё комментарии' : 'Комментариев пока нет'"></span>
+          <svg *ngIf="comments.length" width="20.000000" height="20.000000" viewBox="0 0 20 20" fill="none"
+               xmlns="http://www.w3.org/2000/svg"
+               xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs/>
+            <rect id="Arrow" width="20.000000" height="20.000000" fill="#FFFFFF" fill-opacity="0"/>
+            <path id="Vector"
+                  d="M10 14C9.41 14 8.83 13.77 8.39 13.33L2.95 7.9C2.71 7.65 2.71 7.25 2.95 7.01C3.19 6.77 3.6 6.77 3.84 7.01L9.27 12.45C9.67 12.85 10.32 12.85 10.72 12.45L16.15 7.01C16.39 6.77 16.79 6.77 17.04 7.01C17.28 7.25 17.28 7.65 17.04 7.9L11.6 13.33C11.16 13.77 10.58 14 10 14Z"
+                  fill="#709FDC" fill-opacity="1.000000" fill-rule="nonzero"/>
+            <g opacity="0.000000"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="article-body-right">
+        <div class="article-body-related-articles">
+          <div class="related-articles-title">Читайте также:</div>
+          <div class="article-body-related-article" *ngFor="let article of relatedArticles">
+            <article-card [article]="article"></article-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+<section class="auth" [formGroup]="loginForm">
+  <div class="container">
+    <div class="auth-form">
+      <div class="auth-title">
+        Войти в личный кабинет
+      </div>
+      <div class="auth-inputs">
+        <div class="auth-input">
+          <input type="text" class="input"
+                 [classList]="checkField('email') ? 'invalid' : ''"
+                 placeholder="{{checkField('email') ? 'Заполните адрес электронной почты ' : 'Электронная почта'}}"
+                 formControlName="email">
+        </div>
+        <div class="auth-input">
+          <input type="password" class="input"
+                 [classList]="checkField('password') ? 'invalid' : ''"
+                 placeholder="{{checkField('password') ? 'Придумайте пароль' : 'Пароль'}}"
+                 formControlName="password">
+        </div>
+        <div class="auth-checkbox-login">
+          <input type="checkbox" id="agree"
+                 formControlName="rememberMe">
+          <label for="agree">
+            Запомнить меня
+          </label>
+        </div>
+        <div class="auth-button">
+          <button class="button" [disabled]="loginForm.invalid" (click)="login()">Войти</button>
+        </div>
+      </div>
+      <div class="auth-link">Нет аккаунта?<a routerLink="/signup">Пройдите регистрацию</a></div>
+    </div>
+
+    <div class="page-image"><img src="/assets/images/login.png"></div>
+
+  </div>
+</section>

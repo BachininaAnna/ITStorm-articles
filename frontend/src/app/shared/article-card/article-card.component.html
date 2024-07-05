@@ -1,0 +1,14 @@
+<div class="article" *ngIf="article">
+  <div class="article-image" style="background-image: url('{{pathImage + article.image}}')"></div>
+  <div class="article-content">
+    <div class="article-title">{{article.title}}</div>
+    <div class="article-text">
+      {{((article.description.length + article.title.length) > 300) ?
+      (article.description | slice:0:192) + '...' : article.description}}
+    </div>
+  </div>
+  <a [routerLink]="'/articles/' + article.url" class="article-link">Читать дальше</a>
+  <div class="article-label">{{article.category}}</div>
+</div>
+<!--
+routerLink="/articles/{{article.url}}"-->
