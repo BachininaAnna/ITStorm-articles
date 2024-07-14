@@ -12,6 +12,7 @@ html, body {
   font-size: 14px;
   line-height: 130%;
   color: $dark-blue-color;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -141,7 +142,7 @@ input, select {
 }
 
 snack-bar-container.mat-snack-bar-container {
-  position: absolute;
+  position: fixed;
   top: 15%;
   right: calc(50% - 180px);
   width: 360px;

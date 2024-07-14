@@ -20,4 +20,7 @@ export class FooterComponent{
   getConsultation(){
     this.categoriesService.currentService$.next(ServiceRequestType.consultation);
   }
+  scrollTo(tag: string) {
+    location.href = tag;
+  }
 }

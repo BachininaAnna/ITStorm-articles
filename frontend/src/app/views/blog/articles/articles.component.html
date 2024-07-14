@@ -7,14 +7,14 @@
       <div class="articles-applied-filters">
         <div class="articles-applied-filter" *ngFor="let service of services"
              [class.applied]="service.isApplied">
-          <span>{{service.name}}</span>
+          <span class="articles-applied-span">{{service.name}}</span>
           <svg aria-description="x" (click)="sort(service)"
                width="16.000000" height="16.000000" viewBox="0 0 16 16" fill="none"
                xmlns="http://www.w3.org/2000/svg">
             <path id="Line 4" d="M1.58 2.29L14.3 15.02" stroke="#709FDC" stroke-opacity="1.000000"
-                  stroke-width="1.000000" stroke-linecap="round"/>
+                  stroke-width="1.000000" stroke-linecap="round" fill="none"/>
             <path id="Line 5" d="M14.27 2.27L1.54 15" stroke="#709FDC" stroke-opacity="1.000000" stroke-width="1.000000"
-                  stroke-linecap="round"/>
+                  stroke-linecap="round" fill="none"/>
           </svg>
         </div>
       </div>
@@ -22,7 +22,7 @@
       <div class="articles-sorting" [class.open]="openSorting">
         <div class="articles-sorting-head" (click)="openSorting = !openSorting">
           <span>Фильтр</span>
-          <svg aria-description="v" width="14.445801" height="7.164551" viewBox="0 0 14.4458 7.16455" fill="none"
+          <svg aria-description="v" width="14.445801" height="7.164551" viewBox="0 0 14.4458 6.16455" fill="none"
                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs/>
             <path id="Vector"
@@ -35,7 +35,7 @@
                *ngFor="let service of services"
                (click)="sort(service)"
                [class.applied]="service.isApplied">
-            <span>{{service.name}}</span>
+            <span class="articles-sorting-span">{{service.name}}</span>
             <svg aria-description="+" *ngIf="!service.isApplied"
                  width="10" height="10" viewBox="0 0 10 10" fill="none"
                  xmlns="http://www.w3.org/2000/svg">

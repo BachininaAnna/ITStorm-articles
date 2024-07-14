@@ -200,11 +200,19 @@
                 }
               }
 
-              .applied {
+              .reactions-like.applied {
                 color: $blue-color;
 
                 svg {
                   stroke: $blue-color;
+                }
+              }
+
+              .reactions-dislike.applied {
+                color: red;
+
+                svg {
+                  stroke: red;
                 }
               }
 
@@ -224,11 +232,11 @@
                 margin-right: 19px;
 
                 &:hover {
-                  color: $blue-color;
+                  color: red;
                 }
 
                 &:hover svg {
-                  stroke: $blue-color;
+                  stroke: red;
                 }
               }
 

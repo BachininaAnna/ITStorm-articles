@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService,
               private _snackBar: MatSnackBar,
               private router: Router) {
-
   }
 
   ngOnInit(): void {
@@ -61,5 +60,9 @@ export class HeaderComponent implements OnInit {
     this.authService.removeTokens();
     this._snackBar.open('Вы вышли из системы');
     this.router.navigate(['/login']);
+  }
+
+  scrollTo(tag: string) {
+    location.href = tag;
   }
 }

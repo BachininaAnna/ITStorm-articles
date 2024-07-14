@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ArticleType} from "../../../../types/article.type";
 import {ArticlesService} from "../../../shared/services/articles.service";
 import {CategoriesService} from "../../../shared/services/categories.service";
@@ -32,6 +32,10 @@ export class ArticlesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.router.navigate(['/articles'], {
+      queryParams: this.searchParams
+    })
+
     this.updateSearchParams();
 
     this.getCategories();
@@ -97,7 +101,6 @@ export class ArticlesComponent implements OnInit {
     if (service.isApplied) {
       this.searchParams.categories?.push(service.url);
     }
-
     this.router.navigate(['/articles'], {
       queryParams: this.searchParams
     })
@@ -128,5 +131,14 @@ export class ArticlesComponent implements OnInit {
     })
   }
 
+  @HostListener('document:click', ['$event'])
+  click(event: Event) {
+    const elem = (event.target as HTMLElement);
+    if (this.openSorting && !elem.hasAttribute("fill")) {
+      if (!elem.className.includes('articles-sorting') && !elem.className.includes('articles-applied')) {
+        this.openSorting = false;
+      }
+    }
 
+  }
 }

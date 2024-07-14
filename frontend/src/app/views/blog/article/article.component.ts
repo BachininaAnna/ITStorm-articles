@@ -13,7 +13,6 @@ import {LoaderService} from "../../../shared/services/loader.service";
 import {DefaultResponseType} from "../../../../types/default-response.type";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ActionType} from "../../../../types/action.type";
-import {throwError} from "rxjs";
 import {ReactionOfCommentType} from "../../../../types/reaction-of-comment.type";
 
 @Component({
@@ -45,7 +44,7 @@ export class ArticleComponent implements OnInit {
   url: string = '';
   textComment: string = '';
   commentsParams: CommentsParamsType = {
-    offset: 3,
+    offset: 0,
     article: ''
   }
   allViews: boolean = false;
@@ -65,27 +64,10 @@ export class ArticleComponent implements OnInit {
 
     this.activatedRoute.params
       .subscribe(params => {
-        this.allViews = false;
-        this.commentsParams.offset = 3;
-        this.comments = [];
-
         if (params['url']) {
           this.url = params['url'];
 
-          this.articlesService.getArticle(this.url)
-            .subscribe((data: ArticleFullDataType) => {
-              this.article = data;
-              this.commentsParams.article = data.id
-              if (data.commentsCount) {
-                this.comments = data.comments;
-                if (this.isLogged) {
-                  this.getArticleCommentActions();
-                }
-              }
-              if (data.commentsCount <= this.comments.length) {
-                this.allViews = true;
-              }
-            });
+          this.getArticle();
 
           this.articlesService.getRelatedArticles(this.url)
             .subscribe((data: ArticleType[]) => {
@@ -95,6 +77,28 @@ export class ArticleComponent implements OnInit {
       })
   }
 
+  getArticle() {
+    this.articlesService.getArticle(this.url)
+      .subscribe((data: ArticleFullDataType) => {
+        this.article = data;
+        this.commentsParams.article = data.id
+        if (data.commentsCount) {
+          if (this.comments.length < 3) {
+            this.comments = data.comments;
+            if (this.isLogged) {
+              this.getArticleCommentActions();
+            }
+          } else if (this.comments.length >= 3) {
+            const newComment = data.comments.slice(0,1);
+            this.comments = [...newComment, ...this.comments];
+          }
+        }
+        if (data.commentsCount <= this.comments.length) {
+          this.allViews = true;
+        }
+      });
+  }
+
   getComments() {
     this.loaderService.show();
     this.allViews = true;
@@ -102,13 +106,12 @@ export class ArticleComponent implements OnInit {
     const httpParams = new HttpParams({fromObject: this.commentsParams});
     this.commentsService.getComments(httpParams)
       .subscribe((data: { "allCount": number, "comments": CommentType[] }) => {
-        data.comments.forEach((comment: CommentType) => {
-          this.comments.push(comment);
-        })
+        this.comments = [...this.comments, ...data.comments];
+
         if (data.allCount > this.comments.length) {
           this.allViews = false;
         }
-        if(this.isLogged){
+        if (this.isLogged) {
           this.getArticleCommentActions();
         }
         this.loaderService.hide();
@@ -116,12 +119,8 @@ export class ArticleComponent implements OnInit {
   }
 
   loadSomeComments() {
-    if (this.comments.length === 3) {
-      this.getComments();
-    } else {
-      this.commentsParams.offset += 10;
-      this.getComments();
-    }
+    this.commentsParams.offset = this.comments.length;
+    this.getComments();
   }
 
   addComment() {
@@ -130,7 +129,7 @@ export class ArticleComponent implements OnInit {
         this._snackBar.open(data.message);
         if (!data.error) {
           this.textComment = '';
-          this.getComments();
+          this.getArticle();
         }
       })
   }
@@ -140,7 +139,6 @@ export class ArticleComponent implements OnInit {
       this.commentsService.applyAction(action, id)
         .subscribe({
           next: (data: DefaultResponseType) => {
-
             if (action !== this.action.violate) {
               this._snackBar.open('Ваш голос учтен');
               this.getReactionsOfComment(id);
@@ -149,13 +147,9 @@ export class ArticleComponent implements OnInit {
               this._snackBar.open('Жалоба отправлена');
             }
           },
-          error: (error) => {
-            if (error.status === 400) {
-              this._snackBar.open('Жалоба уже отправлена');
-              return throwError(() => new Error(error));
-            }
-            return throwError(() => error);
-          }
+          error: () => {
+            this._snackBar.open('Жалоба уже отправлена');
+          },
         })
     } else {
       this._snackBar.open('Чтобы оставлять реакции необходимо зарегистрироваться');

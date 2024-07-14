@@ -23,11 +23,11 @@
       </a>
     </div>
     <div class="header-nav">
-      <a routerLink="/" fragment="services">Услуги</a>
-      <a routerLink="/" fragment="aboutUs">О нас</a>
+      <a (click)="scrollTo('/#services')">Услуги</a>
+      <a (click)="scrollTo('/#aboutUs')">О нас</a>
       <a routerLink="/articles" routerLinkActive="active">Статьи</a>
-      <a routerLink="/" fragment="reviews">Отзывы</a>
-      <a routerLink="/" fragment="contacts">Контакты</a>
+      <a (click)="scrollTo('/#reviews')">Отзывы</a>
+      <a (click)="scrollTo('/#contacts')">Контакты</a>
     </div>
     <a class="header-phone" href="tel:+375299182888">+7 (499) 343-13-34</a>
     <div class="header-personal">

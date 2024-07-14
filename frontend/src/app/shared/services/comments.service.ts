@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {catchError, Observable, of, tap} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {CommentType} from "../../../types/comment.type";
 import {Params} from "@angular/router";
